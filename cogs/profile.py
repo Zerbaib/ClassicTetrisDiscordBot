@@ -17,6 +17,7 @@ class ProfileCog(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         print("🔩 /profile as been loaded")
+        print("🔩 /setprofile as been loaded")
 
     @commands.slash_command(name="profile", description="Shows user profile")
     async def profile(self, ctx, user: disnake.User = None):
