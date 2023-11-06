@@ -32,6 +32,7 @@ class ProfileCog(commands.Cog):
         stats = {
             "USERID": user.id,
             "USERNAME": user.name,
+            "AVATAR": user.avatar.url,
             "PLAYSTYLE": None,
             "COUNTRY": None,
             "SAMEPIECESET": None,
@@ -43,8 +44,9 @@ class ProfileCog(commands.Cog):
         embed = disnake.Embed(
             title="Your profile has been set",
             description=f"You can now use `/profile` to see your profile\nTo set values, use `/setvalue <value> <value>`",
-            color=disnake.Color.green()
+            color=disnake.Color.brand_green()
         )
+        embed.set_footer(icon_url=user.avatar.url)
         await ctx.send(embed=embed)
         pass
 
