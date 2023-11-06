@@ -40,6 +40,11 @@ class ProfileCog(commands.Cog):
             "PAL": None,
         }
         self.save_data(stats)
+        embed = disnake.Embed(
+            title="Your profile has been set",
+            description=f"You can now use `/profile` to see your profile\nTo set values, use `/setvalue <value> <value>`",
+            color=disnake.Color.green()
+        )
         pass
 
 def setup(bot):
