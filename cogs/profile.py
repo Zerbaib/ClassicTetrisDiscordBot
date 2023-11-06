@@ -20,9 +20,32 @@ class ProfileCog(commands.Cog):
 
     @commands.slash_command(name="profile", description="Shows user profile")
     async def profile(self, ctx, user: disnake.User = None):
-        self.load_data()
+        data = self.load_data()
         if user == None:
             user = ctx.author
+        
+        if user.id in data:
+            embed = disnake.Embed(
+                title="User not found",
+                description="This user doesn't have a profile",
+                color=disnake.Color.brand_red()
+            )
+            embed.set_footer(icon_url=user.avatar.url, text=f"Ececuted by {user}")
+            await ctx.send(embed=embed)
+            return
+
+        embed = disnake.Embed(
+            title=f"{user.display_name}'s profile",
+            description=f"**Username:** {data[user.id]['USERNAME']}\n**Playstyle:** {data[user.id]['PLAYSTYLE']}\n**Country:** {data[user.id]['COUNTRY']}\n**Same Piece Set:** {data[user.id]['SAMEPIECESET']}",
+            color=disnake.Color.brand_green()
+        )
+        embed.set_thumbnail(url=user.avatar.url)
+        embed.set_footer(icon_url=user.avatar.url, text=f"Ececuted by {user}")
+        embed.set_field_at(name="Classic Tetris", value=f"**NTSC:** {data[user.id]['GAME']['CLASSIC']['NTSC']}\n**NTSC (19):** {data[user.id]['GAME']['CLASSIC']['NTSC (19)']}\n**PAL:** {data[user.id]['GAME']['CLASSIC']['PAL']}\n**PAL (19):** {data[user.id]['GAME']['CLASSIC']['PAL (19)']}", inline=False)
+        embed.set_field_at(name="Tetris GB", value=f"**NTSC:** {data[user.id]['GAME']['TETRISGB']['NTSC']}\n**NTSC (19):** {data[user.id]['GAME']['TETRISGB']['NTSC (19)']}\n**PAL:** {data[user.id]['GAME']['TETRISGB']['PAL']}\n**PAL (19):** {data[user.id]['GAME']['TETRISGB']['PAL (19)']}", inline=False)
+        embed.set_field_at(name="Tetris N64", value=f"**NTSC:** {data[user.id]['GAME']['TETRISN64']['NTSC']}\n**Sprint:** {data[user.id]['GAME']['TETRISN64']['SPRINT']}\n**Marathon:** {data[user.id]['GAME']['TETRISN64']['MARATHON']}\n**Ultra:** {data[user.id]['GAME']['TETRISN64']['ULTRA']}", inline=False)
+        embed.set_field_at(name="Tetris DS", value=f"**NTSC:** {data[user.id]['GAME']['TETRISDS']['NTSC']}\n**NTSC (19):** {data[user.id]['GAME']['TETRISDS']['NTSC (19)']}\n**PAL:** {data[user.id]['GAME']['TETRISDS']['PAL']}\n**PAL (19):** {data[user.id]['GAME']['TETRISDS']['PAL (19)']}", inline=False)
+        await ctx.send(embed=embed)
         pass
     
     @commands.slash_command(name="setprofile", description="Sets user profile")
