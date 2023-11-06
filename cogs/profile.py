@@ -24,7 +24,7 @@ class ProfileCog(commands.Cog):
         if user == None:
             user = ctx.author
         
-        if user.id in data:
+        if user.id not in data:
             embed = disnake.Embed(
                 title="User not found",
                 description="This user doesn't have a profile",
