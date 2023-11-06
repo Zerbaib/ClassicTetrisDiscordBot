@@ -28,8 +28,7 @@ class ProfileCog(commands.Cog):
     @commands.slash_command(name="setprofile", description="Sets user profile")
     async def setprofile(self, ctx):
         self.load_data()
-        if user == None:
-            user = ctx.author
+        user = ctx.author
         stats = {
             "USERID": user.id,
             "USERNAME": user.name,
