@@ -6,7 +6,17 @@ import disnake
 from disnake.ext import commands
 
 config_file_path = "./config.json"
+data_file_path = "./data.json"
 
+if not os.path.exists(data_file_path):
+    with open(data_file_path, 'w') as data_file:
+        data = {}
+        json.dump(data, data_file, indent=4)
+    with open(data_file_path, 'r') as data_file:
+        data = json.load(data_file)
+else:
+    with open(data_file_path, 'r') as data_file:
+        data = json.load(data_file)
 if not os.path.exists(config_file_path):
     with open(config_file_path, 'w') as config_file:
         token = input("Enter the bot's token:\n")
