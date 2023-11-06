@@ -38,7 +38,7 @@ class ProfileCog(commands.Cog):
 
         embed = disnake.Embed(
             title=f"{user.display_name}'s profile",
-            description=f"**Username:** {data[user_id]['USERNAME']}\n**Playstyle:** {data[user_id]['PLAYSTYLE']}\n**Country:** {data[user_id]['COUNTRY']}\n**Same Piece Set:** {data[user_id]['SAMEPIECESET']}",
+            description=f"**Username:** `{data[user_id]['USERNAME']}`\n**Playstyle:** `{data[user_id]['PLAYSTYLE']}`\n**Country:** `{data[user_id]['COUNTRY']}`\n**Same Piece Set:** `{data[user_id]['SAMEPIECESET']}`",
             color=disnake.Color.brand_green()
         )
         embed.add_field(name="Classic Tetris", value=f"**NTSC:** `{data[user_id]['GAME']['CLASSIC']['NTSC']}`\n**NTSC (19):** `{data[user_id]['GAME']['CLASSIC']['NTSC (19)']}`\n**PAL:** `{data[user_id]['GAME']['CLASSIC']['PAL']}`\n**PAL (19):** `{data[user_id]['GAME']['CLASSIC']['PAL (19)']}`", inline=False)
