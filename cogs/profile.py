@@ -45,6 +45,7 @@ class ProfileCog(commands.Cog):
             description=f"You can now use `/profile` to see your profile\nTo set values, use `/setvalue <value> <value>`",
             color=disnake.Color.green()
         )
+        ctx.send(embed=embed)
         pass
 
 def setup(bot):
