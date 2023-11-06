@@ -32,7 +32,7 @@ class ProfileCog(commands.Cog):
                 description="This user doesn't have a profile",
                 color=disnake.Color.brand_red()
             )
-            embed.set_footer(icon_url=user.avatar.url, text=f"Ececuted by {user}")
+            embed.set_footer(icon_url=user.avatar.url, text=f"Executed by {user}")
             await ctx.send(embed=embed)
             return
 
@@ -46,7 +46,7 @@ class ProfileCog(commands.Cog):
         embed.add_field(name="Tetris N64", value=f"**NTSC:** {data[user_id]['GAME']['TETRISN64']['NTSC']}\n**Sprint:** {data[user_id]['GAME']['TETRISN64']['SPRINT']}\n**Marathon:** {data[user_id]['GAME']['TETRISN64']['MARATHON']}\n**Ultra:** {data[user_id]['GAME']['TETRISN64']['ULTRA']}", inline=False)
         embed.add_field(name="Tetris DS", value=f"**NTSC:** {data[user_id]['GAME']['TETRISDS']['NTSC']}\n**NTSC (19):** {data[user_id]['GAME']['TETRISDS']['NTSC (19)']}\n**PAL:** {data[user_id]['GAME']['TETRISDS']['PAL']}\n**PAL (19):** {data[user_id]['GAME']['TETRISDS']['PAL (19)']}", inline=False)
         embed.set_thumbnail(url=user.avatar.url)
-        embed.set_footer(icon_url=user.avatar.url, text=f"Ececuted by {user}")
+        embed.set_footer(icon_url=user.avatar.url, text=f"Executed by {user}")
         await ctx.send(embed=embed)
         pass
     
@@ -107,7 +107,7 @@ class ProfileCog(commands.Cog):
             description=f"You can now use `/profile` to see your profile\nTo set values, use `/setvalue <value> <value>`",
             color=disnake.Color.brand_green()
         )
-        embed.set_footer(icon_url=user.avatar.url, text=f"Ececuted by {user}")
+        embed.set_footer(icon_url=user.avatar.url, text=f"Executed by {user}")
         await ctx.send(embed=embed)
 
 def setup(bot):
