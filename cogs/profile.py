@@ -46,7 +46,7 @@ class ProfileCog(commands.Cog):
             description=f"You can now use `/profile` to see your profile\nTo set values, use `/setvalue <value> <value>`",
             color=disnake.Color.brand_green()
         )
-        embed.set_footer(icon_url=user.avatar.url)
+        embed.set_footer(icon_url=user.avatar.url, text=f"Ececuted by {user}")
         await ctx.send(embed=embed)
         pass
 
