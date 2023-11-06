@@ -43,10 +43,10 @@ class ProfileCog(commands.Cog):
         )
         embed.set_thumbnail(url=user.avatar.url)
         embed.set_footer(icon_url=user.avatar.url, text=f"Ececuted by {user}")
-        embed.set_field_at(name="Classic Tetris", value=f"**NTSC:** {data[user_id]['GAME']['CLASSIC']['NTSC']}\n**NTSC (19):** {data[user_id]['GAME']['CLASSIC']['NTSC (19)']}\n**PAL:** {data[user_id]['GAME']['CLASSIC']['PAL']}\n**PAL (19):** {data[user_id]['GAME']['CLASSIC']['PAL (19)']}", inline=False)
-        embed.set_field_at(name="Tetris GB", value=f"**NTSC:** {data[user_id]['GAME']['TETRISGB']['NTSC']}\n**NTSC (19):** {data[user_id]['GAME']['TETRISGB']['NTSC (19)']}\n**PAL:** {data[user_id]['GAME']['TETRISGB']['PAL']}\n**PAL (19):** {data[user_id]['GAME']['TETRISGB']['PAL (19)']}", inline=False)
-        embed.set_field_at(name="Tetris N64", value=f"**NTSC:** {data[user_id]['GAME']['TETRISN64']['NTSC']}\n**Sprint:** {data[user_id]['GAME']['TETRISN64']['SPRINT']}\n**Marathon:** {data[user_id]['GAME']['TETRISN64']['MARATHON']}\n**Ultra:** {data[user_id]['GAME']['TETRISN64']['ULTRA']}", inline=False)
-        embed.set_field_at(name="Tetris DS", value=f"**NTSC:** {data[user_id]['GAME']['TETRISDS']['NTSC']}\n**NTSC (19):** {data[user_id]['GAME']['TETRISDS']['NTSC (19)']}\n**PAL:** {data[user_id]['GAME']['TETRISDS']['PAL']}\n**PAL (19):** {data[user_id]['GAME']['TETRISDS']['PAL (19)']}", inline=False)
+        embed.set_field_at(index=0, name="Classic Tetris", value=f"**NTSC:** {data[user_id]['GAME']['CLASSIC']['NTSC']}\n**NTSC (19):** {data[user_id]['GAME']['CLASSIC']['NTSC (19)']}\n**PAL:** {data[user_id]['GAME']['CLASSIC']['PAL']}\n**PAL (19):** {data[user_id]['GAME']['CLASSIC']['PAL (19)']}", inline=False)
+        embed.set_field_at(index=0, name="Tetris GB", value=f"**NTSC:** {data[user_id]['GAME']['TETRISGB']['NTSC']}\n**NTSC (19):** {data[user_id]['GAME']['TETRISGB']['NTSC (19)']}\n**PAL:** {data[user_id]['GAME']['TETRISGB']['PAL']}\n**PAL (19):** {data[user_id]['GAME']['TETRISGB']['PAL (19)']}", inline=False)
+        embed.set_field_at(index=0, name="Tetris N64", value=f"**NTSC:** {data[user_id]['GAME']['TETRISN64']['NTSC']}\n**Sprint:** {data[user_id]['GAME']['TETRISN64']['SPRINT']}\n**Marathon:** {data[user_id]['GAME']['TETRISN64']['MARATHON']}\n**Ultra:** {data[user_id]['GAME']['TETRISN64']['ULTRA']}", inline=False)
+        embed.set_field_at(index=0, name="Tetris DS", value=f"**NTSC:** {data[user_id]['GAME']['TETRISDS']['NTSC']}\n**NTSC (19):** {data[user_id]['GAME']['TETRISDS']['NTSC (19)']}\n**PAL:** {data[user_id]['GAME']['TETRISDS']['PAL']}\n**PAL (19):** {data[user_id]['GAME']['TETRISDS']['PAL (19)']}", inline=False)
         await ctx.send(embed=embed)
         pass
     
