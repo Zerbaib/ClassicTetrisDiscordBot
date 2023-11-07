@@ -39,7 +39,7 @@ class ValueCog(commands.Cog):
                 ctx.send("Invalid mode")
                 return
             
-            self.data[ctx.author.id]['GAME'][game][mode] = value
+            self.data[f"ctx.author.id"]['GAME'][game][mode] = value
             with open(self.data_file, "w") as f:
                 json.dump(self.data, f, indent=4)
             
