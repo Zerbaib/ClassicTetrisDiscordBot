@@ -26,6 +26,8 @@ class ValueCog(commands.Cog):
             else:
                 game = game.upper()
                 mode = mode.upper()
+                
+            user_id = str(ctx.author.id)
             
             if game not in ["CLASSIC", "TETRISGB", "TETRISN64", "TETRISDS"]:
                 embed = disnake.Embed(
@@ -35,11 +37,11 @@ class ValueCog(commands.Cog):
                 )
                 await ctx.send(embed=embed)
                 return
-            if mode not in self.data[ctx.author.id]['GAME'][game]:
+            if mode not in self.data[user_id]['GAME'][game]:
                 ctx.send("Invalid mode")
                 return
             
-            self.data[f"ctx.author.id"]['GAME'][game][mode] = value
+            self.data[user_id]['GAME'][game][mode] = value
             with open(self.data_file, "w") as f:
                 json.dump(self.data, f, indent=4)
             
