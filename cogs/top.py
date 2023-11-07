@@ -17,11 +17,16 @@ class Top(commands.Cog):
             self.data = {}
 
     @commands.command()
-    async def top(self, ctx, game: str = None):
+    async def top(self, ctx, game: str = None, mode: str = None):
         if game is None:
             game = "CLASSIC"
         else:
             game = game.upper()
+        if mode is None:
+            mode = "NTCS"
+        else:
+            mode = mode.upper()
+        
         if game not in ["CLASSIC", "TETRISGB", "TETRISN64", "TETRISDS"]:
             embed = disnake.Embed(
                 title="Invalid game",
@@ -30,7 +35,19 @@ class Top(commands.Cog):
             )
             await ctx.send(embed=embed)
             return
-        
+        if mode not in self.data[ctx.author.id]['GAME'][game]:
+            for mode_avalable in self.data[ctx.author.id]['GAME'][game]:
+                mode_avalable = [mode_avalable]
+            embed = disnake.Embed(
+                title="Invalid mode",
+                description=f"This game doesn't exist in the database\n\n**Available mode:**\n{mode_avalable}",
+                color=disnake.Color.brand_red()
+            )
+            await ctx.send(embed=embed)
+            return
+        for user_id in self.data():
+            self.data[user_id]['GAME'][game][mode]
+            pass
         pass
 
 def setup(bot):

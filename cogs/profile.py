@@ -105,7 +105,7 @@ class ProfileCog(commands.Cog):
 
         embed = disnake.Embed(
             title="Your profile has been set",
-            description=f"You can now use `/profile` to see your profile\nTo set values, use `/setvalue <value> <value>`",
+            description=f"You can now use `/profile` to see your profile\nTo set values, use `/setvalue <game> <mode> <high score>`",
             color=disnake.Color.brand_green()
         )
         embed.set_footer(icon_url=user.avatar.url, text=f"Executed by {user}")
