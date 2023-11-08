@@ -38,7 +38,7 @@ class ValueCog(commands.Cog):
                 await ctx.send(embed=embed)
                 return
             if mode not in self.data[user_id]['GAME'][game]:
-                ctx.send("Invalid mode")
+                await ctx.send("Invalid mode")
                 return
             
             self.data[user_id]['GAME'][game][mode] = value
