@@ -14,4 +14,17 @@ class Executor:
         self.dbHost = get_config("DB_HOST")
         self.dbPort = int(get_config("DB_PORT"))
         self.dbName = get_config("DB_NAME")
-        create_db(dbInstructions)
+        self.initalize_db()
+
+    def initalize_db(self):
+        try:
+            cur, conn = connect_db()
+            for line in dbInstructions.split(";"):
+                cur.execute(line)
+                conn.commit()
+            cur.close()
+            conn.close()
+        except Exception as e:
+            Log.error("Failed to initalize database")
+            Log.error(e)
+            exit()
