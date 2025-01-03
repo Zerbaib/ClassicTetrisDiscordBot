@@ -19,8 +19,9 @@ class Executor:
         try:
             cur, conn = connect_db()
             for line in dbInstructions.split(";"):
-                cur.execute(line)
-                conn.commit()
+                if line.strip():
+                    cur.execute(line)
+                    conn.commit()
             cur.close()
             conn.close()
         except Exception as e:
