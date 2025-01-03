@@ -4,7 +4,6 @@ from src.data.var import files, folders, configDataDefault
 
 class Creator:
     def __init__(self):
-        Log.log("Creator started.")
         self.create_folder(folders["config"])
         self.create_folder(folders["logs"])
         self.create_file(files["config"], configDataDefault)
@@ -12,24 +11,25 @@ class Creator:
     def create_file(self, file, data={}):
         try:
             if path.exists(file):
-                Log.log(f"File {file} already exists.")
-                return None
+                return Log.log(f"File {file} already exists.")
             import json
             with open(file, "w") as f:
                 if not data:
                     data = {}
                 json.dump(data, f, indent=4)
-            return True
+            return Log.info(f"File {file} created.")
         except Exception as e:
-            print(f"Error: {e}")
-            return False
+            Log.error(f"Error on create file: {file}")
+            Log.error(e)
+            return
 
     def create_folder(self, folder):
         try:
             if path.exists(folder):
-                return None
+                return Log.log(f"Folder {folder} already exists.")
             makedirs(folder)
-            return True
+            return Log.info(f"Folder {folder} created.")
         except Exception as e:
-            print(f"Error: {e}")
-            return False
+            Log.error(f"Error on create folder: {folder}")
+            Log.error(e)
+            return
