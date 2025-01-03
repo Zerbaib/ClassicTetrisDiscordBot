@@ -1,8 +1,7 @@
 from src.data.var import files
 from src.utils.config import get_config
-import mysql.connector
 from src.utils.logger import Log
-from src.utils.saver import connect_db, create_db
+from src.utils.saver import connect_db
 
 with open(files["instructions"], 'r') as f:
     dbInstructions = f.read()

@@ -19,19 +19,6 @@ def connect_db():
         Log.error(e)
         exit()
 
-def create_db(dbInstructions):
-    try:
-        cur, conn = connect_db()
-        cur.execute(dbInstructions, multi=True)
-        conn.commit()
-        cur.close()
-        conn.close()
-        return cur, conn
-    except Exception as e:
-        Log.error("Failed to create database")
-        Log.error(e)
-        exit()
-
 class Saver():
     def __init__(self):
         pass
@@ -158,9 +145,6 @@ class Saver():
             Log.error("Failed to execute query")
             Log.error(e)
             return
-
-    def close(self):
-        self.conn.close()
 
 def sql_cur_fetchall(query):
     cur, conn = connect_db()
