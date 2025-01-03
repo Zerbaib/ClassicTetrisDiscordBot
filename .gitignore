@@ -12,3 +12,5 @@ config.json
 
 # IDE files
 .vscode/*
+
+*.log
