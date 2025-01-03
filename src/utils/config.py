@@ -1,5 +1,6 @@
-from src.utils.logger import Log
 from src.data.var import files
+from src.utils.logger import Log
+
 
 def get_config(index: str):
     try:

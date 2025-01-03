@@ -1,6 +1,7 @@
 import disnake
 from disnake.ext import commands
 
+
 def get_bot(prefix: str, ownerID: int):
     bot = commands.Bot(
         command_prefix=prefix,

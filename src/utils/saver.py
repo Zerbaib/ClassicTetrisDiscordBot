@@ -1,6 +1,6 @@
 import mysql.connector
-from src.utils.logger import Log
 from src.utils.config import get_config
+from src.utils.logger import Log
 
 
 def connect_db():
