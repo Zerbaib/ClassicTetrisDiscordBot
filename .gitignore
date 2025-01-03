@@ -1,16 +1,16 @@
 # Environment files
-.env/
+.env/*
 .venv/*
 env/*
 venv/*
 
 # Configuration files
 config.json
+logs/*
 
 # Python bytecode files
 *.pyc
+__pycache__/
 
 # IDE files
 .vscode/*
-
-*.log
