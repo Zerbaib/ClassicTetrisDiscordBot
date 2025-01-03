@@ -2,11 +2,13 @@ folders = {
     "config": "./config/",
     "logs": "./logs/",
     "cogs": "./src/modules/",
-    "events": "./src/events/"
+    "events": "./src/events/",
+    "data": "./src/data/"
 }
 
 files = {
-    "config": f"{folders['config']}config.json"
+    "config": f"{folders['config']}config.json",
+    "instructions": f"{folders['data']}instructions.sql"
 }
 
 configDataDefault = {
