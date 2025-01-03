@@ -1,6 +1,8 @@
 folders = {
     "config": "./config/",
-    "logs": "./logs/"
+    "logs": "./logs/",
+    "cogs": "./src/modules/",
+    "events": "./src/events/"
 }
 
 files = {
@@ -10,6 +12,7 @@ files = {
 configDataDefault = {
     "TOKEN": "0AZERTYUIOP123QSDFGHJKLM465WXCVBN789",
     "PREFIX": "!",
+    "OWNER_ID": "0123456789",
     "DB_HOST": "localhost",
     "DB_PORT": "3306",
     "DB_USER": "root",
