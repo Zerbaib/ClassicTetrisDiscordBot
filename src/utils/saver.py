@@ -121,6 +121,26 @@ class Saver():
             Log.error("Failed to update data")
             Log.error(e)
             return
+    def get_top(dataTable, presision, limit):
+        """
+        Get the top data from the database
+
+        Parameters:
+            dataTable (str): The table to get data from
+            presision (dict): The conditions to order data
+            limit (int): The amount of data to get
+
+        Returns:
+            data (list): The fetched data
+        """
+        try:
+            query = f"SELECT * FROM {dataTable} ORDER BY {presision} DESC LIMIT {limit}"
+            Log.sql(query)
+            return sql_cur_fetchall(query)
+        except Exception as e:
+            Log.error("Failed to get top data")
+            Log.error(e)
+            return
     def query(query):
         """
         Execute a query
